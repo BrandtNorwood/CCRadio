@@ -6,6 +6,7 @@ if (#speakers > 0) then
 
     while true do
         shell.run("speaker play https://github.com/BrandtNorwood/CCRadio/raw/main/VaultPlaylist/Song"..i..".dfpwm")
+        speakers[1].stop()
         os.sleep(2)
         i = i + 1
         if (i > playlistLength) then
