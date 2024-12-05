@@ -1,0 +1,65 @@
+2024-12-05 01:28:59> 
+
+-----CC Radio Server v0.1-----
+
+2024-12-05 01:28:59> INITIALIZING...
+2024-12-05 01:28:59> Cached file Song_Library/SongList.json loaded
+2024-12-05 01:28:59> Server Online at port 3050
+2024-12-05 01:37:41> 
+
+-----CC Radio Server v0.1-----
+
+2024-12-05 01:37:41> INITIALIZING...
+2024-12-05 01:37:41> Cached file Song_Library/SongList.json loaded
+2024-12-05 01:37:41> Server Online at port 3050
+2024-12-05 01:37:49> DEBUG: Queued Next Song Sixty Minute Man
+2024-12-05 01:41:14> 
+
+-----CC Radio Server v0.1-----
+
+2024-12-05 01:41:14> INITIALIZING...
+2024-12-05 01:41:14> Cached file Song_Library/SongList.json loaded
+2024-12-05 01:41:14> Server Online at port 3050
+2024-12-05 01:41:17> DEBUG: Queued Next Song Want you gone (portal cover)
+2024-12-05 01:45:22> DEBUG: Queued Next Song Beyond The Sea
+2024-12-05 01:49:02> DEBUG: Queued Next Song Crawl out Through the Fallout
+2024-12-05 01:52:22> DEBUG: Queued Next Song Orange Colored Sky
+2024-12-05 01:55:03> DEBUG: Queued Next Song Blue Moon
+2024-12-05 01:58:31> DEBUG: Queued Next Song Rocket 69
+2024-12-05 02:02:59> DEBUG: Queued Next Song Big Iron
+2024-12-05 02:05:52> 
+
+-----CC Radio Server v0.1-----
+
+2024-12-05 02:05:52> INITIALIZING...
+2024-12-05 02:05:52> Cached file Song_Library/SongList.json loaded
+2024-12-05 02:05:52> Server Online at port 3050
+2024-12-05 02:05:55> DEBUG: Queued Next Song Drivin' Nails in my Coffin
+2024-12-05 02:18:30> DEBUG: Queued Next Song Crying My Heart Out for You
+2024-12-05 02:21:24> DEBUG: Queued Next Song The Wanderer
+2024-12-05 02:23:29> DEBUG: Queued Next Song Crying My Heart Out for You
+2024-12-05 02:26:16> DEBUG: Queued Next Song Sixty Minute Man
+2024-12-05 02:28:21> DEBUG: Queued Next Song Want you gone (portal cover)
+2024-12-05 02:30:52> DEBUG: Queued Next Song Swinging On A Star
+2024-12-05 02:34:50> DEBUG: Queued Next Song Jingle, Jangle, Jingle
+2024-12-05 02:37:22> DEBUG: Queued Next Song I'll Hold you in my Heart
+2024-12-05 02:40:43> DEBUG: Queued Next Song Heartaches By The Number
+2024-12-05 02:43:31> DEBUG: Queued Next Song Beyond The Sea
+2024-12-05 02:46:06> DEBUG: Queued Next Song Crawl out Through the Fallout
+2024-12-05 02:49:39> DEBUG: Queued Next Song Personality
+2024-12-05 02:52:06> DEBUG: Queued Next Song Flamin' Mamie
+2024-12-05 02:54:56> DEBUG: Queued Next Song Come Fly With Me
+2024-12-05 02:57:36> DEBUG: Queued Next Song Orange Colored Sky
+2024-12-05 03:00:50> DEBUG: Queued Next Song Crazy He Calls Me
+2024-12-05 03:03:24> DEBUG: Queued Next Song Billy The Kid
+2024-12-05 03:06:30> DEBUG: Queued Next Song Blue Moon
+2024-12-05 03:08:50> DEBUG: Queued Next Song Rocket 69
+2024-12-05 03:11:42> DEBUG: Queued Next Song Big Iron
+2024-12-05 03:18:30> 
+
+-----CC Radio Server v0.1-----
+
+2024-12-05 03:18:30> INITIALIZING...
+2024-12-05 03:18:30> Cached file Song_Library/SongList.json loaded
+2024-12-05 03:18:30> Server Online at port 3050
+2024-12-05 03:18:33> DEBUG: Queued Next Song Drivin' Nails in my Coffin
