@@ -1,0 +1,135 @@
+[   
+    {
+        "name": "Country Roads (Fallout version)",
+        "artist": "John Denver",
+        "length": 182000,
+        "ccFileName": "CountryRoads.dfpwm"
+    },
+    {
+        "name": "Drivin' Nails in my Coffin",
+        "artist": "Ernest Tubb",
+        "length": 173000,
+        "ccFileName": "DrivinNailInMyCoffin.dfpwm"
+    },
+    {
+        "name": "Crying My Heart Out for You",
+        "artist": "Doris Day",
+        "length": 125000,
+        "ccFileName": "CryingMyHeartOutForYou.dfpwm"
+    },
+    {
+        "name": "The Wanderer",
+        "artist": "Dion",
+        "length": 167000,
+        "ccFileName": "TheWanderer.dfpwm"
+    },
+    {
+        "name": "Pistole Packin' Mama",
+        "artist": "Bing Crosby",
+        "length": 183000,
+        "ccFileName": "PistolePackinMama.dfpwm"
+
+    },
+    {
+        "name": "Sixty Minute Man",
+        "artist": "The Dominoes",
+        "length": 151000,
+        "ccFileName": "SixtyMinMan.dfpwm"
+    },
+    {
+        "name": "Want you gone (portal cover)",
+        "artist": "8 bit big band",
+        "length": 237000,
+        "ccFileName": "WantYouGone.dfpwm"
+    },
+    {
+        "name": "Swinging On A Star",
+        "artist": "Bing Crosby",
+        "length": 152000,
+        "ccFileName": "SwingingOnAStar.dfpwm"
+    },
+    {
+        "name": "Jingle, Jangle, Jingle",
+        "artist": "Kay Kyser",
+        "length": 201000,
+        "ccFileName": "JingleJangle.dfpwm"
+    },
+    {
+        "name": "I'll Hold you in my Heart",
+        "artist": "Eddy Arnold",
+        "length": 158000,
+        "ccFileName": "IllHoldYouInMyHeart.dfpwm"
+    },
+    {
+        "name": "Heartaches By The Number",
+        "artist": "Guy Mitchell",
+        "length": 155000,
+        "ccFileName": "HeartachesByTheNumber.dfpwm"
+    },
+    {
+        "name": "Beyond The Sea",
+        "artist": "Kevin Spacey",
+        "length": 213000,
+        "ccFileName": "BeyondTheSea.dfpwm"
+    },
+    {
+        "name": "Crawl out Through the Fallout",
+        "artist": "Sheldon Allman",
+        "length": 147000,
+        "ccFileName": "CrawlOutThrough.dfpwm"
+    },
+    {
+        "name": "Personality",
+        "artist": "Johnny Mercer",
+        "length": 170000,
+        "ccFileName": "Personality.dfpwm"
+    },
+    {
+        "name": "Flamin' Mamie",
+        "artist": "Hank Penny",
+        "length": 168000,
+        "ccFileName": "FlaminMamie.dfpwm"
+    },
+    {
+        "name": "Come Fly With Me",
+        "artist": "Frank Sinatra",
+        "length": 194000,
+        "ccFileName": "ComeFlyWithMe.dfpwm"
+    },
+    {
+        "name": "Orange Colored Sky",
+        "artist": "Nat King Cole",
+        "length": 154000,
+        "ccFileName": "OrangeColoredSky.dfpwm"
+    },
+    {
+        "name": "Crazy He Calls Me",
+        "artist": "Billie Holiday",
+        "length": 186000,
+        "ccFileName": "CrazyHeCallsMe.dfpwm"
+    },
+    {
+        "name": "Billy The Kid",
+        "artist": "Marty Robbins",
+        "length": 140000,
+        "ccFileName": "BillyTheKid.dfpwm"
+    },
+    {
+        "name": "Blue Moon",
+        "artist": "Frank Sinatra",
+        "length": 172000,
+        "ccFileName": "BlueMoon.dfpwm"
+    },
+    {
+        "name": "Rocket 69",
+        "artist": "Todd Rhodes",
+        "length": 164000,
+        "ccFileName": "Rocket69.dfpwm"
+    },
+    {
+        "name": "Big Iron",
+        "artist": "Marty Robbins",
+        "length": 236000,
+        "ccFileName": "BigIron.dfpwm"
+    }
+]

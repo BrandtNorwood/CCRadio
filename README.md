@@ -2,4 +2,13 @@
 *A fun way to blast music within minecraft!*
 *By Niko Norwood*
 
-This was writen and tested in the CC:Tweaked minecraft mod and is intended to be used with the mods Speaker blocks. The contained lua script will reach out to this repo and pull songs in order from the Vault playlist. The program needs the names of the files to be `Song<int>.dfpwm` since it starts by calling `Song1.dfpwm` and will increase the number till no file is found. This means if you add songs to the playlist there is no need to restart the program!
+This was writen and tested in the CC:Tweaked minecraft mod and is intended to be used with the mods Speaker blocks. The contained lua script will reach out to a server run with the nodejs server contained within the Server directory. ccradio.lua fires off player.lua in a seperate shell so both files are required on each client.
+
+Usage
+ In minecraft copy both the ccradio.lua and player.lua files into the computer. If needed change the url value to your server.
+
+Server Requirements
+* NodeJS (tested with v23.0.0)
+* Express (tested with 4.21.1)
+
+once these requirements are met simply run with `node radioServer.js`
