@@ -31,7 +31,7 @@ app.use((req, res, next) => {
 });
 
 //Throw some output to show different sessions in serverLog.txt
-bygone.output("\n\n-----CC Radio Server v0.1-----\n");
+bygone.output("\n\n-----CC Radio Server v1.0-----\n");
 bygone.output("INITIALIZING...");
 
 //initialize variables for the sync frames
