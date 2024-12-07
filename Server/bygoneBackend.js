@@ -7,8 +7,9 @@
 
 */
 
-const debugMode = true;
+var debugMode = true;
 var logMode = true;
+const { debug } = require('console');
 const fs = require('fs');
 const path = require("path");
 
@@ -34,6 +35,14 @@ function debugOutput(message) {
     }
 }
 
+function setDebug(bool){
+    if (typeof bool == "boolean"){
+        debugMode = bool;
+        debugOutput("Debug mode set to "+debugMode);
+    } else {
+        output("ERROR: attempted to set debug to non boolean value. Defaulting to "+debugMode);
+    }
+}
 
 
 //This class and its functions are for logging output to the serverLog.txt
@@ -100,7 +109,8 @@ class cachedFile {
             
             debugOutput('Database file updated successfully!');
         } catch (err) {
-            output('!Error Writing to database file : ' , err);
+            output('ERROR: Error thrown Writing to database file : ' , err);
+            throw('ERROR: Error thrown Writing to database file : ' , err);
         }
     }
 
@@ -110,6 +120,7 @@ class cachedFile {
             fs.readFile(this.filePath, (err, data) => {
                 if (err) {
                     // If there's an error reading the file, send an error response
+                    output("ERROR: unable to reead file");
                     reject("Error reading file:", err);
                 } else {
                     try {
@@ -123,6 +134,7 @@ class cachedFile {
                     } catch (parseError) {
                         // If there's an error parsing the JSON, send an error response
                         reject("Error parsing JSON:", parseError);
+                        output("ERROR: unable to reead file");
                     }
                 }
             })
@@ -137,4 +149,4 @@ logger = new Logger(logFilePath, 2000); //Filepath, flush interval
 
 
 r:
-module.exports = {output: output, debugOutput: debugOutput, cachedFile: cachedFile};
+module.exports = {output: output, debugOutput: debugOutput, cachedFile: cachedFile, setDebug: setDebug};
