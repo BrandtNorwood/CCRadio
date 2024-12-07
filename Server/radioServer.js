@@ -1,4 +1,4 @@
-/*  CC Radio Server V0.5
+/*  CC Radio Server V0.4
 
     NodeJs script to function as a server computercraft ccradio clients
 
@@ -23,7 +23,9 @@ const port = 3050;
 //enables randomizing songs on the list
 const shuffle = true;
 
-//period after song start when clients can still start playback
+//period after song start in milleseconds when clients can still start playback
+//note - this value also effects the timing between frames ending and the next song queueing
+//       no song can be shorter then twice this amount. 3 seconds is the reccomended amount
 var gracePeriod = 3000;
 
 
@@ -38,8 +40,11 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Headers', '*');
     next();
 });
-//period after song start when clients can still start playback
-var gracePeriod = 3000;mes
+
+//Throw some output to show different sessions in serverLog.txt
+bygone.output("\n\n-----CC Radio Server v1.0-----\n");
+bygone.output("INITIALIZING...");
+
 var syncFrameStart = Date.now();
 var syncFrameLength = 0.0;
 
@@ -102,8 +107,8 @@ function nextSong() {
         currentSong = {};
         currentSong.ccFileName = songLibrary[songCounter].preroll.ccFileName;
         currentSong.length = songLibrary[songCounter].preroll.length
-        currentSong.name = "preroll"
-        currentSong.artist = "preroll"
+        currentSong.name = ""
+        currentSong.artist = ""
         currentSong.isPreroll = true;
 
         bygone.debugOutput("Queued Preroll for Next Song "+currentSong.name);
