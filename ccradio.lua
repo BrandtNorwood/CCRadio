@@ -27,30 +27,41 @@ function requestSong()
 
             --request song details
             local detailRequest = http.get(url.."/getSongDetails")
-            songDetails = textutils.unserialiseJSON(detailRequest.readAll())
-            term.clear()
-            term.setCursorPos(1,1)
-            print("Hold CTRL T to quit")
-            term.setCursorPos(1,3)
-            print("Song : "..songDetails.name)
-            print("  By : "..songDetails.artist)
+            if detailRequest ~= nil then
+                songDetails = textutils.unserialiseJSON(detailRequest.readAll())
 
-            --single shell version
-            term.setCursorPos(1,6)
-            shell.run("speaker play "..url.."/getCCFile")
-            os.sleep(1)
-            speakers[1].stop()
+                term.clear()
+                term.setCursorPos(1,1)
+                print("Hold CTRL T to end song")
+                term.setCursorPos(1,3)
+                print("Song : "..songDetails.name)
+                print("  By : "..songDetails.artist)
 
-            term.clear()
-            term.setCursorPos(1,1)
-            print("Hold CTRL T to quit")
+                --single shell version of call to the speaker app
+                term.setCursorPos(1,6)
+                shell.run("speaker play "..url.."/getCCFile")
+                --Avoid phantom buffer squeak
+                os.sleep(0.5)
+                speakers[1].stop()
 
+                --clear old song data off the screen
+                term.clear()
+                term.setCursorPos(1,1)
+                print("Hold CTRL T to quit")
+            else
+                --Catch most server com issues
+                term.setCursorPos(1,2)
+                term.clearLine()
+                print ("Server Sent Bad Data")
+            end 
         else
+            --wait for next gap in sync frames
             term.setCursorPos(1,2)
             term.clearLine()
             print("in-between songs. "..math.floor(syncStatus.timerValue/1000).." seconds remaining")
         end
     else
+        --display error for no server communication
         term.setCursorPos(1,2)
         term.clearLine()
         print ("Invalid Server Connection")
