@@ -28,7 +28,13 @@ const shuffle = true;
 //       no song can be shorter then twice this amount. 3 seconds is the reccomended amount
 var gracePeriod = 3000;
 
+//percent chance of a preroll playing
+var prerollChance = 0.33;
 
+//Throw some output to show different sessions in serverLog.txt
+bygone.output("\n\n-----CC Radio Server v1.0-----\n");
+bygone.output("INITIALIZING...");
+bygone.setDebug(true);
 
 // Middleware to parse JSON bodies
 app.use(express.json());
@@ -40,10 +46,6 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Headers', '*');
     next();
 });
-
-//Throw some output to show different sessions in serverLog.txt
-bygone.output("\n\n-----CC Radio Server v1.0-----\n");
-bygone.output("INITIALIZING...");
 
 var syncFrameStart = Date.now();
 var syncFrameLength = 0.0;
@@ -68,7 +70,7 @@ updateSongLibrary();
 
 //keeps track of current song being served.
 var songCounter = 0;
-var currentSong = null;
+var currentSong = null;//creating an object for the preroll to live in
 
 
 
@@ -102,7 +104,7 @@ function nextSong() {
     }
 
     //if the next song contains a preroll and we are not currently in one load the preload into the queue
-    if (songLibrary[songCounter].preroll != null && currentSong.isPreroll == null){
+    if (songLibrary[songCounter].preroll != null && currentSong.isPreroll == null && prerollChance < Math.random() ){
         //creating an object for the preroll to live in
         currentSong = {};
         currentSong.ccFileName = songLibrary[songCounter].preroll.ccFileName;
