@@ -10,5 +10,6 @@ Usage
 Server Requirements
 * NodeJS (tested with v23.0.0)
 * Express (tested with 4.21.1)
+* Bygone Backend (Included)
 
 once these requirements are met simply run with `node radioServer.js`
