@@ -41,7 +41,6 @@ function requestSong()
                 term.setCursorPos(1,6)
                 shell.run("speaker play "..url.."/getCCFile")
                 --Avoid phantom buffer squeak
-                os.sleep(0.5)
                 speakers[1].stop()
 
                 --clear old song data off the screen
