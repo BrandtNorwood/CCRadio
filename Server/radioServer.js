@@ -1,4 +1,4 @@
-/*  CC Radio Server V0.4
+/*  CC Radio Server V0.5
 
     NodeJs script to function as a server computercraft ccradio clients
 
@@ -17,9 +17,16 @@ const bygone = require ('./bygoneBackend');
 const path = require('path');
 const { start } = require('repl');
 
+//port the server will operate on
 const port = 3050;
 
+//enables randomizing songs on the list
 const shuffle = true;
+
+//period after song start when clients can still start playback
+var gracePeriod = 3000;
+
+
 
 // Middleware to parse JSON bodies
 app.use(express.json());
@@ -31,12 +38,8 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Headers', '*');
     next();
 });
-
-//Throw some output to show different sessions in serverLog.txt
-bygone.output("\n\n-----CC Radio Server v1.0-----\n");
-bygone.output("INITIALIZING...");
-
-//initialize variables for the sync frames
+//period after song start when clients can still start playback
+var gracePeriod = 3000;mes
 var syncFrameStart = Date.now();
 var syncFrameLength = 0.0;
 
@@ -58,12 +61,9 @@ function updateSongLibrary(){
 updateSongLibrary();
 
 
-
 //keeps track of current song being served.
 var songCounter = 0;
-
-//period after song start when clients can still start playback
-var gracePeriod = 3000;
+var currentSong = null;
 
 
 
@@ -74,6 +74,43 @@ function shuffleArray(arr) {
         [arr[i], arr[j]] = [arr[j], arr[i]];
     }
     bygone.debugOutput("Shuffled "+arr.length+" songs")
+}
+
+
+
+//queues next song or preroll
+function nextSong() {
+    //check if song is null in case its being called after program load
+    if (currentSong != null){
+        if (currentSong.isPreroll == null){
+            //if song is not a preroll we can advance to the next one
+            songCounter++;
+        }
+    }
+
+    //if we have hit the end of the list head back to 0
+    if (songCounter >= songLibrary.length){
+        songCounter = 0;
+
+        //reload and reshuffle (if enabled) song library in case anything was added
+        updateSongLibrary();
+    }
+
+    //if the next song contains a preroll and we are not currently in one load the preload into the queue
+    if (songLibrary[songCounter].preroll != null && currentSong.isPreroll == null){
+        //creating an object for the preroll to live in
+        currentSong = {};
+        currentSong.ccFileName = songLibrary[songCounter].preroll.ccFileName;
+        currentSong.length = songLibrary[songCounter].preroll.length
+        currentSong.name = "preroll"
+        currentSong.artist = "preroll"
+        currentSong.isPreroll = true;
+
+        bygone.debugOutput("Queued Preroll for Next Song "+currentSong.name);
+    } else {
+        currentSong = songLibrary[songCounter];
+        bygone.debugOutput("Queued Next Song "+currentSong.name); 
+    }
 }
 
 
@@ -94,15 +131,13 @@ app.get("/getSync", (req, res) => {
 
 //Returns current song file details
 app.get("/getSongDetails", (req, res) => {
-    currentSong = songLibrary[songCounter];
+    if (currentSong == null){nextSong();}
     res.send({name:currentSong.name,artist:currentSong.artist,length:currentSong.length})
 });
 
 
 //Returns Computercraft coded file to client
 app.get("/getCCFile",(req, res) =>{
-    currentSong = songLibrary[songCounter];
-
     let remainingSyncFrame = (Date.now() - (syncFrameStart + syncFrameLength)) * -1;
 
     //If this is the first time a file is being requested on this loop then 
@@ -113,25 +148,6 @@ app.get("/getCCFile",(req, res) =>{
 
         //we use a timeout so that the song switch does not happen till after the grace period is over
         setTimeout(nextSong, gracePeriod*2);
-        function nextSong() {
-            songCounter++;
-
-            //if we have hit the end of the list head back to 0
-            if (songCounter >= songLibrary.length){
-                songCounter = 0;
-
-                //reload and reshuffle (if enabled) song library in case anything was added
-                updateSongLibrary();
-            }
-
-            //if pre roll exists on next song queue that and mark current song as pre roll
-
-            //if comming off a preroll or none exists queue song itself
-
-            //set next song as current song
-            currentSong = songLibrary[songCounter];
-            bygone.debugOutput("Queued Next Song "+currentSong.name);
-        }
     }
 
     //reply with client file
