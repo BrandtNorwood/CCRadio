@@ -3,15 +3,16 @@ local url = "http://localhost:3050"
 
 local speakers = {peripheral.find("speaker")}
 
-term.clear()
-term.setCursorPos(1,1)
-print("Hold CTRL T to quit")
-
 --BUG Does not work as expexted
 if (speakers[1] == nil) then
     print("No speakers found!")
-    shell.exit()
+    print("Please attach a speaker to play music")
+    return
 end
+
+term.clear()
+term.setCursorPos(1,1)
+print("Hold CTRL T to quit")
 
 function requestSong()
     --make request for a sync frame
